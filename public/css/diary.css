@@ -1,0 +1,231 @@
+
+/* メインここから */
+.main-glid{
+    display:grid;
+    grid-template-rows: 0 100px auto   ;
+    grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
+    grid-template-areas:
+        "header header header header header"
+        "...    ...     ...    ...    ..."
+        "...  title1 title1   title1  ...";       
+      }
+/* ヘッダー */
+header{
+    grid-area:header;
+    /* background: rgba(177, 212, 238,0.3); */
+    position: fixed;
+    width: 100%;
+    
+}
+
+/* タイトル１ */
+.title1{
+    grid-area:title1;
+    /* background: #f88; */
+}
+.title1 h1{
+    padding-left:2%;
+    background: rgba(250, 237, 207, 0.6);
+}
+
+/* エディターエリア */
+.editar-area{
+    display:grid;
+    grid-template-rows: auto   ;
+    grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
+    grid-template-areas:
+        "... container container container ..."
+    
+      }
+
+.container {
+  grid-area:container;
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* 日記の記述 */
+.main {
+  display: block;
+  width: 60%;
+  margin-right: 20px;
+}
+.diaryImg{
+    width: 80%;
+    max-height: 900px;
+    object-fit: cover;
+
+}
+
+.diaryText{
+  white-space: pre-wrap;
+}
+
+.dfont{
+font-size: 2.2rem;
+}
+.dfont2{
+font-size: 1.6rem;
+}
+
+/* コメント欄 */
+.dcomment{
+    /* background-color: rgba(235, 228, 161, 0.5); */
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    display:none;
+}
+.comment-box{
+  margin-top:2rem;
+  margin-left:1rem;
+}
+.dcname{
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+}
+.dccreatedAt{
+  font-size: 1.2rem;
+  display: block;
+  line-height: 1;
+  color: #787c7b;
+}
+.dccomment{
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #222;
+  white-space: pre-wrap;
+}
+.btnClick{
+  color:black;
+}
+.btnClick:hover{
+  opacity: 0.7;
+}
+#cbtn{
+   color:black;
+   font-size: 1.4rem;
+   font-weight: 700;
+   line-height: 1;
+   color: #a8abb1;
+}
+#cbtn:hover{
+opacity: 0.7;
+
+}
+/* コメントここまで＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+
+
+.sidebar {
+  width: 35%;
+  /* background-color: rgb(94, 227, 112); */
+
+}
+
+.sidebar__item {
+  margin-bottom: 20px;
+  /* background-color: blue; */
+}
+
+.form{
+    margin-top:-20px;
+    width: 100%;
+    padding: 15px;
+    background:#f8f8f8;
+    border:1px solid rgba(0, 0, 0, 0.075);
+    margin-bottom:25px;
+    color:#727272 !important;
+    font-size:13px;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  .textarea{
+    height: 200px;
+    max-height: 200px;
+    max-width: 100%;
+  }
+ 
+  .lbutton{
+  width: 60%;
+    padding: 7px;
+    border: 2px solid #d7dee2;
+    font-size: 13px;
+    margin-top:2%;
+    margin-left:20%;
+    color:#727272 !important;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+
+.sidebar__item--fixed {
+  position: sticky;
+  margin-bottom: 0;
+  top: 100px;
+  z-index: 1;
+}
+
+/* エディタここまで ＝＝＝＝＝＝＝＝＝＝＝＝*/
+
+
+@media(max-width:700px){
+    .main-glid{
+        display:grid;
+        grid-template-rows: 0 65px auto   ;
+        grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
+        grid-template-areas:
+            "header header header header header"
+            "...    ...     ...    ...    ..."
+            "...  title1 title1   title1  ...";       
+          }
+    .dfont{
+        font-size: 2rem;
+        }
+        .dfont2{
+        font-size: 1.4rem;
+        }
+        .container{
+            display:grid;
+            grid-template-rows: auto auto  ;
+            grid-template-columns:1fr 4fr 4fr 1fr;
+            grid-template-areas:
+                " main  main main main  "
+                " sidebar sidebar sidebar ...";
+              }
+        /* ヘッダー */
+        .main{
+            grid-area:main;
+            width: 100%;
+            
+        }
+
+
+        .diaryImg {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+        }
+        .sidebar{
+            grid-area:sidebar;
+            /* position: fixed; */
+            width: 100%;
+        }
+        .textarea {
+            height: 100px;
+        
+        }
+
+        .form{
+          margin-top: -10px;
+      }
+
+}

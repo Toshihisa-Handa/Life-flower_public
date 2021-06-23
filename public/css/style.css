@@ -1,0 +1,140 @@
+html{
+    font-size: 62.5%;/*フォント基準を10pxに。これで1rem=10pxになる*/
+}
+
+body{
+    margin:0;
+    font-size:1.6rem;/* 16px*/
+    line-height: 2;
+    /* font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif; */
+    font-family: "times new roman", times, serif;/*日本語*/
+    font-family: "ｍｓ 明朝","ms mincho","ヒラギノ明朝 pro w3","hiragino mincho pro",serif;/*英語*/
+   
+  }
+
+  a{
+    text-decoration: none;
+    color:black;
+  }
+
+
+
+  header{
+    /* background: rgb(39, 40, 41); */
+    /* background: rgb(255, 251, 243); */
+    background: white;
+
+    position: fixed;
+    z-index: 9000;
+    width: 100%;
+    max-height: 90px;
+    
+}
+  header:hover{
+    opacity: 0.8;
+    /* background: rgb(255, 251, 243); */
+
+
+  }
+  .logo{
+    height: 40px;
+    margin-top: 0px;
+
+}
+
+#search{
+  display: none;
+}
+
+header ul li{
+line-height: 50px;
+}
+.account_img{
+  margin-top: 6px;
+}
+.aimg{
+    width: 40px;
+    border-radius: 50%;
+    height: 35px;
+    object-fit: cover;
+
+  filter: drop-shadow(0 0px 5px silver);
+}
+
+   header ul{
+       display: flex;
+       list-style: none;
+       justify-content: space-around;
+
+   }
+   .hlink{ 
+    font-size: 20px;
+    font-weight: bold;
+    color:black;
+    text-decoration: none;
+    font-family: "ｍｓ 明朝","ms mincho","ヒラギノ明朝 pro w3","hiragino mincho pro",serif;/*英語*/
+   }
+
+.nav-right{
+  display: flex;
+}
+.log{
+  margin-right: 27px;
+}
+
+.footer-glid{
+    display:grid;
+    grid-template-rows:auto  50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+         "footer  footer"
+         "Fnav  Fnav";
+}
+
+   footer{
+    grid-area: footer;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top:7rem;
+    padding-top: 3rem;
+    /* background: rgb(106, 110, 109); */
+    border-top: 1px inset rgba(48, 50, 53, 0.4);
+    text-align: center;
+    font-size:2.2rem;
+    /* max-height: 300px; */
+   }
+
+   .search{
+    min-width: 240px;
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    color: #333;
+    margin-right: 20px;
+}
+
+
+
+  .snav{
+    display: none;
+  }
+
+  .sidebar{
+    font-size: 3rem;
+  }
+  .sidebar a{
+    /* color:white; */
+    color:black;
+
+  }
+  .web{
+    display: none;
+  }
+
+  
+  .Fnav{
+    grid-area:Fnav;
+    width: 100%;
+    
+}

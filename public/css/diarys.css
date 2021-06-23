@@ -1,0 +1,176 @@
+
+
+
+
+.diarys-glid{
+    display:grid;
+    grid-template-rows: 0 65px auto 50px  ;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header  header"
+        ".....   ....."
+        "img1    img1"
+        "title1  title1"
+      }
+
+header{
+    grid-area:header;
+    /* background: rgba(177, 212, 238,0.3); */
+}
+.img1{
+    grid-area:img1;
+    /* background: rgba(18, 100, 163, 0.3); */
+    /* background-image: url(/images/diaryimg2.png);
+     background-size: cover; */
+     width: 100%;
+
+}
+.img1 img{
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+
+}
+.title1{
+    grid-area:title1;
+    /* background: rgba(63, 98, 122, 0.3); */
+    margin-left: 10%;
+    line-height: 110px;
+}
+
+
+.diary-list{
+    display:grid;
+    /* grid-template-rows: 0 70px 150px 100px  ; */
+    grid-template-columns: 0.5fr 9fr 0;
+    grid-template-areas: 
+        "left diaryList  right";
+}
+
+.diaryList{
+    grid-area:diaryList;
+    /* background: rgba(63, 98, 122, 0.3); */
+}
+
+
+ .diary-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top:0 ;
+    /* background: #d39e9e; */
+   }
+    .dcard{
+     width: 300px;
+     height:480px;
+     margin:100px 30px 0 0;
+
+    }
+   .diary-card{
+        background: rgba(243, 242, 234, 0.3);
+        width: 300px;
+        height: 450px;
+        border: 2px solid rgb(197, 213, 247);
+        box-shadow: 5px 5px 5px 1px rgb(163, 189, 197);
+        
+       }
+   
+    .diary-card img{
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+
+    }
+
+    .diary-card h3{
+    text-overflow: ellipsis;
+    margin-top:0;
+    margin-bottom:0;
+    margin-left:5%;
+    font-size: 2rem;
+    }
+    
+    .dtext{
+    height: 170px;
+    font-size: 1.4rem;
+    margin-top:5px;
+    margin-left:7%;
+    margin-right: 3%;
+    /* word-break: keep-all; */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-overflow: ellipsis;/*...を末尾にいれる(overflow:hiddenとセット)*/
+    overflow: hidden;
+
+    }
+    .dname{
+    margin-top: 0.5rem;
+    margin-left: 2%;
+    margin-bottom:0;
+    font-size: 1.6rem;
+    color:rgba(71, 72, 74, 0.5)
+    }
+
+    
+
+     
+
+    @media(max-width:700px){
+    
+        .dcard{
+            margin:100px auto;
+           }
+    }
+
+    @media(max-width:415px){
+        .dcard{
+            width: 240px;
+            height:384px;
+       
+           }
+          .diary-card{
+               background: rgba(243, 242, 234, 0.3);
+               width: 240px;
+               height: 360px;
+               border: 2px solid rgb(197, 213, 247);
+               box-shadow: 5px 5px 5px 1px rgb(163, 189, 197);
+               
+              }
+          
+           .diary-card img{
+               width: 100%;
+               height: 176px;
+               object-fit: cover;
+       
+           }
+       
+           .diary-card h3{
+           text-overflow: ellipsis;
+           margin-top:0;
+           margin-bottom:0;
+           margin-left:5%;
+           font-size: 1.6rem;
+           }
+           
+           .dtext{
+           height: 130px;
+           font-size: 1.12rem;
+           margin-top:5px;
+           margin-left:7%;
+           margin-right: 3%;
+           /* word-break: keep-all; */
+           white-space: pre-wrap;
+           word-wrap: break-word;
+           text-overflow: ellipsis;/*...を末尾にいれる(overflow:hiddenとセット)*/
+           overflow: hidden;
+       
+           }
+           .dname{
+           margin-top: 0.4rem;
+           margin-left: 2%;
+           margin-bottom:0;
+           font-size: 1.3rem;
+           color:rgba(71, 72, 74, 0.5)
+           }
+       
+    }

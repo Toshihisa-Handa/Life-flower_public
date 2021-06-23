@@ -1,0 +1,230 @@
+
+
+.grid-box{
+    display:grid;
+    grid-template-rows: 0 100vh 100px auto auto 70px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header  header "
+        "main    main"
+        "...     ..."
+        "title1  title1"
+        "tips1   tips1"
+        "...     ...";
+      }
+/* ヘッダー */
+header{
+    grid-area:header;
+    /* background: rgba(177, 212, 238,0.3); */
+    position: fixed;
+    width: 100%;
+    
+}
+
+
+/* メイン画像 */
+.main{
+    grid-area:main;
+    /* background: rgb(155, 153, 153); */
+    background-image: url(/images/top0.jpg);
+    background-size: cover;
+    background-position:center; 
+
+}
+.mainTitle{
+    margin-top:22%;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 6rem;
+    /* color:wheat; */
+    color:rgb(241, 242, 232);
+    max-height: 300px;
+}
+.mainSubtitle{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 4.8rem;
+    /* color:wheat; */
+    color:rgb(241, 242, 232);
+    max-height: 250px;
+
+}
+/* タイトル１ */
+.topTitle{
+    text-align: center;
+    font-size: 3.2rem ;
+ }
+ 
+ .topSubtitle{
+     font-size: 2.8rem ;
+     text-align: center;
+ }
+.topTitle2{
+    font-size: 3.2rem ;
+    margin-top:0;
+ }
+ 
+ .topSubtitle2{
+     font-size: 2.6rem ;
+     white-space: pre-wrap;
+     margin-top:0;
+     margin-bottom:0;
+     padding-right: 6%;
+     padding-left: 2%;
+ }
+
+
+.title1{
+    grid-area:title1;
+    /* background: #f88; */
+}
+
+.tips1{
+    grid-area:tips1;
+    /* background: rgb(155, 153, 153); */
+}
+
+
+
+.glid-box2{
+    display:grid;
+    grid-template-rows:auto 70px auto auto 70px auto 50px auto 70px auto 100px  ;
+    grid-template-columns: 1fr 3.5fr 1fr 3.5fr 1fr;
+    grid-template-areas: 
+    
+        "... img1 img1  img1 ..."
+        "... ... ... ... ..."
+        "... title2 title2 title2 ..."
+        "... tips2 tips2  tips2 ..."
+        "... ... ... ... ..."
+        "... img2 img2 img2 ..."
+        "... ... ... ... ..."
+        "link1 link1 link1  link1 link1"
+        "... ... ... ... ..."
+        "... title3 title3 title3 ..."
+        "... ...  ... ... ..."
+       
+      }
+
+/* 画像１ */
+.img1{
+    grid-area:img1;
+    /* background: #f88; */
+    width: 100%;
+    object-fit: cover;
+
+}
+.img1 img{
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+
+}
+
+.title2{
+    grid-area:title2;
+    /* background: rgb(155, 153, 153); */
+}
+
+.tips2{
+    grid-area:tips2;
+    /* background: #f88; */
+}
+
+
+.img2{
+    grid-area:img2;
+    /* background: rgb(155, 153, 153); */
+    width: 100%;
+    object-fit: cover;
+
+}
+.img2 img{
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+
+}
+.link1{
+    grid-area:link1;
+    text-align: center;
+    /* background: #f88; */
+}
+.underbar{
+    padding-bottom:2rem;
+  border-bottom: 1px inset rgba(48, 50, 53, 0.4);
+ 
+}
+
+
+.title3{
+    grid-area:title3;
+    text-align: center;
+    line-height: 100px;
+    background: rgba(245, 243, 225, 0.3);
+}
+
+
+.glid-box3{
+    display:grid;
+    grid-template-rows: 350px 100px 350px 150px 300px 50px;
+    grid-template-columns: 1fr 3fr 1fr 3fr 1fr;
+    grid-template-areas: 
+        "... left1 right1 right1 ..."
+        "... ... ... ... ..."
+        "... left2 left2 right2 ..."
+        "... ... ... ... ..."
+        "footer  footer footer  footer  footer "
+        "fnav  fnav fnav  fnav  fnav ";
+      }
+.left1{
+    grid-area:left1;
+    width: 100%;
+    /* max-height: 420px; */
+}
+.left1 img{
+    width: 100%;
+    height: 100%;
+    max-height: 350px;
+    object-fit:cover;
+
+}
+
+.right1{
+    grid-area:right1;
+    background:rgba(223, 198, 217, 0.2);
+    padding-left: 5%;
+    padding-top:3%;
+    max-height: 350px;
+}
+
+
+
+.left2{
+    grid-area:left2;
+    background:rgba(223, 198, 217, 0.2);
+    padding-left: 5%;
+    /* padding-top:3%; */
+    max-height: 350px;
+
+}
+
+
+.right2{
+    grid-area:right2;
+    width: 100%;
+    max-height: 350px;
+
+}
+.right2 img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    max-height: 350px;
+
+}
+
+
+
+
+

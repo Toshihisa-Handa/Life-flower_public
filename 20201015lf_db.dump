@@ -1,0 +1,246 @@
+-- MySQL dump 10.13  Distrib 8.0.16, for osx10.12 (x86_64)
+--
+-- Host: 127.0.0.1    Database: lf_db
+-- ------------------------------------------------------
+-- Server version	8.0.21
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8mb4 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `dcomment`
+--
+
+DROP TABLE IF EXISTS `dcomment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `dcomment` (
+  `dcomment_id` int NOT NULL AUTO_INCREMENT,
+  `diary_id` int NOT NULL,
+  `dcomment` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`dcomment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dcomment`
+--
+
+LOCK TABLES `dcomment` WRITE;
+/*!40000 ALTER TABLE `dcomment` DISABLE KEYS */;
+INSERT INTO `dcomment` VALUES (33,77,'珍しい','2020-10-13 14:45:43',40);
+/*!40000 ALTER TABLE `dcomment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `diary`
+--
+
+DROP TABLE IF EXISTS `diary`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `diary` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `image` text NOT NULL,
+  `tag` varchar(255) DEFAULT NULL,
+  `text` text,
+  `created_at` datetime NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `diary`
+--
+
+LOCK TABLES `diary` WRITE;
+/*!40000 ALTER TABLE `diary` DISABLE KEYS */;
+INSERT INTO `diary` VALUES (77,'青い花','http://res.cloudinary.com/second-cube/image/upload/v1602567850/frsrtv0zzzkbcpw8p1lk.jpg','青','青い花が咲いた','2020-10-13 14:44:07',40),(78,'関西のお花','http://res.cloudinary.com/second-cube/image/upload/v1602731277/npmkqexxfr5uvlokfoxa.jpg','関西','可愛いお花の入荷連絡です','2020-10-15 12:07:54',41);
+/*!40000 ALTER TABLE `diary` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fcomment`
+--
+
+DROP TABLE IF EXISTS `fcomment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `fcomment` (
+  `fcomment_id` int NOT NULL AUTO_INCREMENT,
+  `flower_id` int NOT NULL,
+  `fcomment` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`fcomment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fcomment`
+--
+
+LOCK TABLES `fcomment` WRITE;
+/*!40000 ALTER TABLE `fcomment` DISABLE KEYS */;
+INSERT INTO `fcomment` VALUES (14,37,'綺麗','2020-10-13 14:45:31',40),(15,38,'きれい','2020-10-15 11:52:52',41),(16,38,'いいですね','2020-10-15 11:53:03',41),(17,36,'','2020-10-15 14:05:35',0);
+/*!40000 ALTER TABLE `fcomment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `flower`
+--
+
+DROP TABLE IF EXISTS `flower`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `flower` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `price` int NOT NULL,
+  `feature` varchar(255) DEFAULT NULL,
+  `tag` varchar(255) DEFAULT NULL,
+  `text` text,
+  `created_at` datetime NOT NULL,
+  `user_id` int NOT NULL,
+  `image` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `flower`
+--
+
+LOCK TABLES `flower` WRITE;
+/*!40000 ALTER TABLE `flower` DISABLE KEYS */;
+INSERT INTO `flower` VALUES (36,'一輪挿し',120,'赤い','赤','一輪刺し','2020-10-13 14:44:40',40,'http://res.cloudinary.com/second-cube/image/upload/v1602567882/rutrsjlpvcwxbufc7yag.jpg'),(37,'ブーケ',1300,'10本入り','ブーケ','贈り物に','2020-10-13 14:45:11',40,'http://res.cloudinary.com/second-cube/image/upload/v1602567914/gqjwjipkz6v3mxtojghw.jpg'),(38,'本日のお花',120,'新鮮','店主のおすすめ','店主一押しのお花です','2020-10-14 11:07:45',41,'http://res.cloudinary.com/second-cube/image/upload/v1602641269/gmnjmuow8fgcggtql8cj.jpg');
+/*!40000 ALTER TABLE `flower` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `map`
+--
+
+DROP TABLE IF EXISTS `map`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `map` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `lat` varchar(255) DEFAULT '0',
+  `lon` varchar(255) DEFAULT '0',
+  `title` varchar(255) DEFAULT NULL,
+  `pincolor` varchar(255) DEFAULT 'red',
+  `description` text,
+  `image` text,
+  `created_at` datetime DEFAULT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `map`
+--
+
+LOCK TABLES `map` WRITE;
+/*!40000 ALTER TABLE `map` DISABLE KEYS */;
+INSERT INTO `map` VALUES (1,'36.4042494','139.3501111','test','red','test','http://res.cloudinary.com/second-cube/image/upload/v1602567614/zkvmcqjd0ws9x3gmpujb.jpg','2020-10-13 14:39:36',40),(2,'0','0',NULL,'red',NULL,NULL,'2020-10-14 10:59:40',41),(3,'0','0',NULL,'red',NULL,NULL,'2020-10-15 03:18:07',42),(4,'0','0',NULL,'red',NULL,NULL,'2020-10-15 03:44:21',43),(5,'0','0',NULL,'red',NULL,NULL,'2020-10-15 12:16:30',44);
+/*!40000 ALTER TABLE `map` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `shop`
+--
+
+DROP TABLE IF EXISTS `shop`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `shop` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `account_name` varchar(255) DEFAULT NULL,
+  `web` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `tell` int DEFAULT NULL,
+  `open` varchar(255) DEFAULT NULL,
+  `close` varchar(255) DEFAULT NULL,
+  `holiday` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `map` varchar(500) DEFAULT NULL,
+  `account_img` text,
+  `shop_img` text,
+  `img1` text,
+  `img2` text,
+  `message` varchar(255) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `feature` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shop`
+--
+
+LOCK TABLES `shop` WRITE;
+/*!40000 ALTER TABLE `shop` DISABLE KEYS */;
+INSERT INTO `shop` VALUES (48,40,'テスト商店','テストタイトル','テスト','http://second-cube.sakura.ne.jp/manulboy-re/','test@jp',12345678,'10時','18時','水曜日','群馬','https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12843.652577602017!2d139.33744687088088!3d36.41129665791912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601ee2508e16739b%3A0xe08ad4135955f445!2z5aSn5bed576O6KGT6aSo!5e0!3m2!1sja!2sjp!4v1599721104441!5m2!1sja!2sjp','http://res.cloudinary.com/second-cube/image/upload/v1602567648/amw0ukodfp6e3bqtoaku.png','http://res.cloudinary.com/second-cube/image/upload/v1602567667/e2d1gaq2vwxnhfjufjsq.jpg','http://res.cloudinary.com/second-cube/image/upload/v1602567693/oiptupj4jxuj64dny6ps.jpg','http://res.cloudinary.com/second-cube/image/upload/v1602567705/yweiaef4zhvymmcnzsry.jpg','ようこそお越しくださいました','つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）','2020-10-13 14:43:12','テストな特徴'),(49,41,'大阪のお花屋さん','関西ふうみ','大阪','http://second-cube.sakura.ne.jp/manulboy-re/','osaka@jp',12345678,'10時','18時','水曜日','大阪','https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12843.652577602017!2d139.33744687088088!3d36.41129665791912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601ee2508e16739b%3A0xe08ad4135955f445!2z5aSn5bed576O6KGT6aSo!5e0!3m2!1sja!2sjp!4v1599721104441!5m2!1sja!2sjp','http://res.cloudinary.com/second-cube/image/upload/v1602699010/bgtcbiw2i1o4t0e4ooin.jpg','http://res.cloudinary.com/second-cube/image/upload/v1602640849/sbmm2j5ul7jn7toycwbv.jpg','http://res.cloudinary.com/second-cube/image/upload/v1602640900/gifcr5s4sduwdr85z4lb.jpg','http://res.cloudinary.com/second-cube/image/upload/v1602640916/gzsicwlhrbl9fr2l4lft.jpg','商いしまっせ','関西からこんにちは。\r\nお客様の希望に答えます','2020-10-14 11:06:09','元気'),(50,42,NULL,NULL,'横浜',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'http://res.cloudinary.com/second-cube/image/upload/v1602699898/qhnq1xavwikv7g6bjbwp.jpg',NULL,NULL,NULL,NULL,NULL,'2020-10-15 03:18:07',NULL),(51,43,NULL,NULL,'神奈川',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-15 03:44:21',NULL),(52,44,NULL,NULL,'栃木',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-15 12:16:30',NULL);
+/*!40000 ALTER TABLE `shop` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `user` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (40,'テスト','test@jp','123','2020-10-13 14:38:45'),(41,'大阪','osaka@jp','123','2020-10-14 10:59:40'),(42,'横浜','yokohama@jp','123','2020-10-15 03:18:07'),(43,'神奈川','kanagawa@jp','123','2020-10-15 03:44:21'),(44,'栃木','tochigi@jp','123','2020-10-15 12:16:30');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'lf_db'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-10-15 16:19:11

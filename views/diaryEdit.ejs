@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>日記編集</title>
+</head>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<style>
+    .grid-box{
+      display:grid;
+      grid-template-rows: 0 110px auto 30px auto 100px ;
+      grid-template-columns: 1fr 1fr 3fr 1fr 1fr 2fr 1fr;
+      grid-template-areas:
+          "header  header header header header header header"
+          "...      ...    ...    ...  ... ... ..."
+          "...      main   main    main    ... nav ..."
+          "...      line    line      line    line line ..."
+          "...      ...    ...    ...    ... ... ...";
+        }
+  
+  /* ヘッダー */
+  header{
+      grid-area:header;
+      /* background: rgba(177, 212, 238,0.3); */
+      position: fixed;
+      width: 100%;
+      
+  }
+  
+  .main{
+      grid-area:main;
+      margin-bottom:30px;
+  
+  }
+  
+  /* lineエリア＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+  .line{
+      grid-area:line;
+      border-top: 2px solid rgb(201, 207, 240);
+  }
+  
+  
+  /* main2エリア＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+  .nav{
+      grid-area:nav;
+      margin-top: 30px;
+  }
+  .nav p{
+    font-size: 2rem;
+    text-decoration: underline;
+  }
+  
+  .nav p:hover{
+    opacity: 0.7;
+  }
+  
+  /* インプットタグのcss */
+  .inframe{
+      display: flex;
+      margin-bottom: 20px;
+  
+  }
+  .inframe div{
+    font-size: 2rem;
+    line-height: 6rem;
+    padding:0 10px 0 10px;
+  }
+  
+  .inputs{
+      width: 60%;
+      display: inline-block;
+      min-height: 40px;
+      padding: 4px 8px;
+      line-height: 1.5;
+      color: #222;
+      vertical-align: top;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 4px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-size: 2rem;
+  }
+  
+  .txt{
+      width: 60%;
+      height: 400px;
+      display: inline-block;
+      min-height: 40px;
+      padding: 4px 8px;
+      line-height: 1.5;
+      color: #222;
+      vertical-align: top;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 4px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-size: 2rem;
+  }
+  
+  
+  
+  
+  /* 画像アップのcss */
+  #attachment label {
+   /* ボタン部分の見た目（任意） */
+   display: inline-block;
+   position: relative;
+   background: rgb(146, 214, 226);
+   color:#fff;
+   font-size: 16px;
+   padding: 10px 18px;
+   border-radius: 4px;
+   transition: all 0.3s;
+  }
+  #attachment label:hover {
+   background: #888;
+   transition: all 0.4s;
+  }
+  #attachment label input {
+   /* 今回のポイント */
+   position: absolute;
+   left:0;
+   top:0;
+   opacity: 0;
+   width: 100%;
+   height: 100%;
+  }
+  #attachment .filename {
+   font-weight: 16px;
+   margin:0 0 0 10px;
+  }
+  
+  .sends{
+   margin-left:30%;
+      width: 150px;
+      padding: 7px;
+      /* border: 2px solid #a9defd; */
+      border:none;
+      font-size: 1.6rem;
+      background: rgba(165, 215, 238, 0.3);
+  }
+  
+      </style>
+<body>
+    <div class="grid-box">
+      <header>
+        <ul>
+          
+          <div class='leftNav'>
+              <li><a href="/" ><img src="../images/lf-logo-gray.png" alt="" class='logo' ></a></li>
+        </div>
+          <li class='hnav'><a href="/map" class='hlink'>Map</a></li>
+          <li class='hnav'><a href="/shops" class='hlink'>Shop</a></li>
+          <li class='hnav'><a href="/diarys" class='hlink'>Diary</a></li>
+          <li class='hnav'><a href="/flowers" class='hlink'>Flower</a></li>
+          <div class='nav-right'>
+          
+          <% if (typeof user == 'undefined') { %>
+          <li class='log'><a href="/login" class='hlink'>Login</a></li>
+          <% } else{%>
+          <li class='log'><a href="/logout" class='hlink'>Logout</a></li>
+          <% } %>
+          <li class='account_img' >
+             <a href="/mypage">
+                <% if (typeof user !== 'undefined' ) { %>
+                    <% if(sitems[0].account_img=== null){%>
+                        <img src="../images/account3.png" class='aimg' alt="" >  
+                  <% }else{ %>
+                    <img src="<%=sitems[0].account_img %>" class='aimg' alt="" >  
+                  <% } %>
+                  <% } %>
+            </a>
+        </li>
+     </div>
+ 
+        </ul>
+     </header>
+ 
+     <div class="main">
+        <h2>日記編集</h2>
+        <form action='/diaryUpdate/<%=item.id%>' method="post">
+              <div class='inframe'>
+                <div>タイトル</div><input class='inputs' type="text" name="title" value='<%=item.title%>'><br>
+            </div>
+              <div class='inframe'>
+                <div>　　タグ</div><input class='inputs' type="text" name="tag" value='<%=item.tag%>'><br>
+            </div>
+              <div class='inframe'>
+                <div>テキスト</div><textarea class='txt'  name="text" ><%=item.text%></textarea><br>
+            </div>
+         
+            <button type="submit" class='sends'>送信</button>
+        </form>
+
+    
+    
+      </div>
+   
+    
+
+
+
+<br>
+<div class="nav">
+    <p><a href="/drege">日記の登録</a></p>
+    <p><a href="/myprofile">店舗情報</a></p>
+    <p><a href="/frege">花の登録</a></p>
+    <p><a href="/mapinfo">マップ情報</a></p>
+  </div>
+
+
+
+</div>
+
+<!-- フッター ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝-->
+<div class="footer-glid">
+  <footer>
+      <h3>Copyright  second-cube</h3>
+  </footer>
+
+  <!-- フッターナビ -->
+  <div class='Fnav web ' >
+  <ul class='navs'>
+  <li ><a href="/map" ><img class='navimg' src="../images/map-24.png" alt=""></a><a href="/map" class='Fnav-link hlink'>Map</a></li>
+  <li ><a href="/shops" ><img class='navimg' src="../images/shop-24.png" alt=""></a><a href="/shops" class='Fnav-link hlink'>Shop</a></li>
+  <li ><a href="/diarys" ><img class='navimg' src="../images/script-24.png" alt=""></a><a href="/diarys" class='Fnav-link hlink'>Diary</a></li>
+  <li ><a href="/flowers" ><img class='navimg' src="../images/flower-24.png" alt=""></a><a href="/flowers" class='Fnav-link hlink'>Flower</a></li>
+  <!-- <li><div id='search'>検索</div></li> -->
+
+  </ul>
+  </div>
+</div>
+<!-- フッターここまで ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script>
+     $('#attachment .fileinput').on('change', function () {
+ var file = $(this).prop('files')[0];
+ $(this).closest('#attachment').find('.filename').text(file.name);
+});
+ </script>
+</body>
+</html>

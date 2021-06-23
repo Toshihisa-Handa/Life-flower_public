@@ -1,0 +1,427 @@
+
+/* 1400 1020 415 */
+
+@media(max-width:1400px){
+
+
+
+/* top.ejs ==================================================*/
+.mainTitle{
+    margin-top:30%;
+}
+.topTitle{
+   font-size: 2.8rem ;
+}
+
+.topSubtitle{
+    font-size: 2.3rem ;
+
+}
+.topTitle2{
+   font-size: 2.8rem ;
+}
+
+.topSubtitle2{
+    font-size: 2.3rem ;
+
+}
+
+
+/* login.ejs=============================================== */
+.login-list{
+    display:grid;
+    grid-template-rows: 200px 300px 150px  ;
+    grid-template-columns: 1fr 3.5fr 1fr 3.5fr 1fr;
+    grid-template-areas: 
+        ".....loginimg ... loginList ....."
+        ".....loginimg ... loginList ....."
+        ".....loginimg ... loginList .....";
+}
+
+}
+
+
+
+@media(max-width:1020px){
+
+/* 共通＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+
+.hnav{
+    display: none;
+}
+
+.web{
+    display: block;
+}
+
+
+/* ヘッダー */
+header{
+/* background: rgba(177, 212, 238,0.3); */
+/* background: rgb(255, 251, 243); */
+background: white;
+
+
+/* background: rgb(39, 40, 41); */
+/* color:white; */
+color:black;
+max-height: 70px;
+
+}
+
+header ul{  
+ justify-content: space-between;
+}
+
+.nav-right{
+ margin-right: 5%;
+}
+.logo {
+    height: 35px;
+    margin-top: 6px;
+   }
+
+/* フッターナビ */
+
+.Fnav{
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    top:93%;
+    background: rgb(39, 40, 41);
+    /* background: rgba(177, 212, 238,0.3); */
+    /* background: rgb(255, 251, 243); */
+    /* background: white; */
+    color:black;
+
+}
+.Fnav:hover{
+    opacity: 0.8;
+}
+  .Fnav-link{
+    color:white;
+    margin-left:5px;
+  }
+  
+
+.Fnav ul li{
+line-height: 50px;
+}
+
+.Fnav ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+
+}
+
+/* top.ejs ==================================================*/
+.mainTitle{
+    margin-top:40%;
+    font-size: 5rem;
+}
+.mainSubtitle{
+    font-size: 4rem;
+}
+.topTitle{
+    font-size: 2.5rem ;
+ }
+ 
+ .topSubtitle{
+     font-size: 2rem ;
+ 
+ }
+.topTitle2{
+    font-size: 2.5rem ;
+ }
+ 
+ .topSubtitle2{
+     font-size: 2rem ;
+ 
+ }
+
+ .glid-box3{
+    display:grid;
+    grid-template-rows: auto 60px auto 50px 200px 50px;
+    grid-template-columns: 1fr 3fr 1fr 3fr 1fr;
+    grid-template-areas: 
+        "... left1 right1 right1 ..."
+        "... ... ... ... ..."
+        "... left2 left2 right2 ..."
+        "... ... ... ... ..."
+        "footer  footer footer  footer  footer "
+        "fnav  fnav fnav  fnav  fnav ";
+      }
+
+/* login.ejs=============================================== */
+
+.login-list{
+    display:grid;
+    grid-template-rows: 200px 300px 150px  ;
+    grid-template-columns: 0.5fr 4fr 1fr 4fr 0.5fr;
+    grid-template-areas: 
+        ".....loginimg ... loginList ....."
+        ".....loginimg ... loginList ....."
+        ".....loginimg ... loginList .....";
+}
+
+
+
+}
+
+
+@media(max-width:810px){
+    .topTitle2{
+        font-size: 2rem;
+    }
+    .topSubtitle2{
+        font-size: 1.6rem;
+    }
+
+/* shops.ejs================================================== */
+.shop-card {
+    margin: 70px auto;
+
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:700px){
+/* ヘッダー */
+#search{
+display: inline;
+}
+.leftNav{
+display: flex;
+}
+.searchImg{
+ margin-top: 7px;
+ cursor: pointer;
+ margin-left: 21px;
+
+}
+.search-bar{
+    display: none;
+}
+.t-search{
+    display: none;
+    
+}
+
+/* top.ejs ==================================================*/
+
+.glid-box3{
+    display:grid;
+    grid-template-rows: auto auto 100px auto auto 30px 200px 50px;
+    grid-template-columns: 1fr 3fr 1fr 3fr 1fr;
+    grid-template-areas: 
+        "... left1 left1 left1 ..."
+        "... right1 right1 right1 ..."
+        "... ... ... ... ..."
+        "... right2 right2 right2 ..."
+        "... left2 left2 left2 ..."
+        "... ... ... ... ..."
+        "footer  footer footer  footer  footer "
+        "fnav  fnav fnav  fnav  fnav ";
+      }
+/* 
+      .left1 img{
+        max-height: 420px;
+    
+    }
+
+    .right2 img{
+        max-height: 420px;
+    
+    } */
+
+
+
+/* login.ejs=============================================== */
+.flowers-glid{
+    display:grid;
+    grid-template-rows: 0 65px 30px  ;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header  header"
+        ".....   ....."
+        "title1  title1"
+      }
+
+.login-list{
+    display:grid;
+    grid-template-rows: auto  ;
+    grid-template-columns: 0.5fr 4fr 1fr 4fr 0.5fr;
+    grid-template-areas: 
+      
+        ".....loginList loginList loginList .....";
+}
+
+.logionTitle{
+    margin-top:0;
+}
+
+}
+
+
+
+@media(max-width:415px){
+
+header{
+ max-height: 50px;
+}
+.hlink{ 
+ font-size: 1.6rem;
+}
+.logo {
+ height: 30px;
+ margin-top: 0;
+
+}
+.nav-right {
+ margin-top: -8px;
+ margin-right: 15%;
+
+}
+
+
+.searchImg {
+    margin-top: 0px;
+}
+.search{
+    position: absolute;
+    top: 66px;
+    left: 41px;
+    background: white;
+}
+
+/* フッター */
+
+
+footer{
+    margin-top:0;
+  
+   }
+
+.Fnav{
+top:93%;
+max-height: 55px;
+}
+
+
+.Fnav-link{
+display: none;    
+}
+
+.navs{
+    margin-top: 8px;
+}
+
+
+/* top.ejs ==================================================*/
+.mainTitle{
+    margin-top:62%;
+    font-size: 4rem;
+}
+.mainSubtitle{
+    font-size: 3.2rem;
+}
+
+.topTitle{
+    font-size: 2rem;
+}
+.topSubtitle{
+    font-size: 1.6rem;
+}
+.topTitle2{
+    font-size: 2rem;
+}
+.topSubtitle2{
+    font-size: 1.6rem;
+}
+
+.grid-box{
+    display:grid;
+    grid-template-rows: 0 100vh 50px auto auto 30px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header  header "
+        "main    main"
+        "...     ..."
+        "title1  title1"
+        "tips1   tips1"
+        "...     ...";
+      }
+
+
+      .glid-box2{
+        display:grid;
+        grid-template-rows:auto 30px auto auto 20px auto 10px auto 30px auto 50px  ;
+        grid-template-columns: 1fr 3.5fr 1fr 3.5fr 1fr;
+        grid-template-areas: 
+        
+            "... img1 img1  img1 ..."
+            "... ... ... ... ..."
+            "... title2 title2 title2 ..."
+            "... tips2 tips2  tips2 ..."
+            "... ... ... ... ..."
+            "... img2 img2 img2 ..."
+            "... ... ... ... ..."
+            "link1 link1 link1  link1 link1"
+            "... ... ... ... ..."
+            "... title3 title3 title3 ..."
+            "... ...  ... ... ..."
+           
+          }
+
+/* shops.ejs================================================== */
+
+
+.shop-card {
+    width: 280px;
+    height: 400px;
+    border: 2px solid rgb(197, 213, 247);
+    box-shadow: 5px 5px 5px 1px rgb(163, 189, 197);
+  
+    margin: 70px auto;
+
+}
+.shop-card img{
+    height: 200px;
+  }
+  .shopTitle {
+    margin-left: 3%;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top:20px;
+
+  }
+  .shopSub{
+      margin-left:5%;
+      font-size: 1.5rem;
+      margin-top: 5px;
+  }
+
+
+
+
+
+
+
+
+
+}

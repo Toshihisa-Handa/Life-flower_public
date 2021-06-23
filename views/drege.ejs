@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>日記登録</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+  .grid-box{
+    display:grid;
+    grid-template-rows: 0 110px auto 30px auto 100px ;
+    grid-template-columns: 1fr 1fr 3fr 1fr 1fr 2fr 1fr;
+    grid-template-areas:
+        "header  header header header header header header"
+        "...      ...    ...    ...  ... ... ..."
+        "...      main   main    main    ... nav ..."
+        "...      line    line      line    line line ..."
+        "...      main2   main2    main2    main2 main2 ..."
+        "...      ...    ...    ...    ... ... ...";
+      }
+
+/* ヘッダー */
+header{
+    grid-area:header;
+    /* background: rgba(177, 212, 238,0.3); */
+    position: fixed;
+    width: 100%;
+    
+}
+
+.main{
+    grid-area:main;
+    margin-bottom:30px;
+
+}
+
+/* lineエリア＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+.line{
+    grid-area:line;
+    border-top: 2px solid rgb(201, 207, 240);
+}
+
+
+/* main2エリア＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+.main2{
+    grid-area:main2;
+ 
+}
+
+.nav{
+    grid-area:nav;
+    margin-top: 30px;
+}
+.nav p{
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.nav p:hover{
+  opacity: 0.7;
+}
+
+/* インプットタグのcss */
+.inframe{
+    display: flex;
+    margin-bottom: 20px;
+
+}
+.inframe div{
+  font-size: 2rem;
+  line-height: 6rem;
+  padding:0 10px 0 10px;
+}
+
+.inputs{
+    width: 60%;
+    display: inline-block;
+    min-height: 40px;
+    padding: 4px 8px;
+    line-height: 1.5;
+    color: #222;
+    vertical-align: top;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 2rem;
+}
+
+.txt{
+      width: 60%;
+      height: 250px;
+      display: inline-block;
+      min-height: 40px;
+      padding: 4px 8px;
+      line-height: 1.5;
+      color: #222;
+      vertical-align: top;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 4px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-size: 2rem;
+  }
+
+
+/* 画像アップのcss */
+#attachment label {
+ /* ボタン部分の見た目（任意） */
+ display: inline-block;
+ position: relative;
+ background: rgb(146, 214, 226);
+ color:#fff;
+ font-size: 16px;
+ padding: 10px 18px;
+ border-radius: 4px;
+ transition: all 0.3s;
+}
+#attachment label:hover {
+ background: #888;
+ transition: all 0.4s;
+}
+#attachment label input {
+ /* 今回のポイント */
+ position: absolute;
+ left:0;
+ top:0;
+ opacity: 0;
+ width: 100%;
+ height: 100%;
+}
+#attachment .filename {
+ font-weight: 16px;
+ margin:0 0 0 10px;
+}
+
+.sends{
+
+    width: 150px;
+    padding: 7px;
+    /* border: 2px solid #a9defd; */
+    border:none;
+    font-size: 1.6rem;
+    background: rgba(165, 215, 238, 0.3);
+}
+
+/* main2のcss */
+
+.diary-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top:0 ;
+    /* background: #d39e9e; */
+   }
+    .dcard{
+     width: 300px;
+     height:480px;
+     margin-right:60px;
+     margin-top:100px;
+    }
+   .diary-card{
+        background: rgba(243, 242, 234, 0.3);
+        width: 300px;
+        height: 450px;
+        border: 2px solid rgb(197, 213, 247);
+        box-shadow: 5px 5px 5px 1px rgb(163, 189, 197);
+        
+       }
+   
+    .diary-card img{
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+
+    }
+
+    .diary-card h3{
+    text-overflow: ellipsis;
+    margin-top:0;
+    margin-bottom:0;
+    margin-left:5%;
+    font-size: 2rem;
+    }
+    
+    .dtext{
+    height: 170px;
+    font-size: 1.4rem;
+    margin-top:5px;
+    margin-left:7%;
+    margin-right: 3%;
+    /* word-break: keep-all; */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-overflow: ellipsis;/*...を末尾にいれる(overflow:hiddenとセット)*/
+    overflow: hidden;
+
+    }
+    .dname{
+    margin-top: 0.5rem;
+    margin-left: 2%;
+    margin-bottom:0;
+    font-size: 1.6rem;
+    color:rgba(71, 72, 74, 0.5)
+    }
+
+.option{
+    display: flex;
+}
+.update{
+    margin-right: 20px;
+}
+.update a{
+    color:rgb(43, 116, 226)
+}
+.delete a{
+    color:rgb(43, 116, 226)
+}
+
+    </style>
+</head>
+<body>
+    <div class="grid-box">
+        <header>
+            <ul>
+              
+              <div class='leftNav'>
+                  <li><a href="/" ><img src="images/lf-logo-gray.png" alt="" class='logo' ></a></li>
+            </div>
+              <li class='hnav'><a href="/map" class='hlink'>Map</a></li>
+              <li class='hnav'><a href="/shops" class='hlink'>Shop</a></li>
+              <li class='hnav'><a href="/diarys" class='hlink'>Diary</a></li>
+              <li class='hnav'><a href="/flowers" class='hlink'>Flower</a></li>
+              <div class='nav-right'>
+              
+              <% if (typeof user == 'undefined') { %>
+              <li class='log'><a href="/login" class='hlink'>Login</a></li>
+              <% } else{%>
+              <li class='log'><a href="/logout" class='hlink'>Logout</a></li>
+              <% } %>
+              <li class='account_img' >
+                 <a href="/mypage">
+                    <% if (typeof user !== 'undefined' ) { %>
+                        <% if(sitems[0].account_img=== null){%>
+                            <img src="images/account3.png" class='aimg' alt="" >  
+                      <% }else{ %>
+                        <img src="<%=sitems[0].account_img %>" class='aimg' alt="" >  
+                      <% } %>
+                      <% } %>
+                </a>
+            </li>
+         </div>
+     
+            </ul>
+         </header>
+
+
+     <div class="main">
+        <h1>日記登録</h1>
+        <form action="/d_insert" method="POST" enctype="multipart/form-data">
+            <div id='attachment'>
+                <label>
+                    <input type="file" name="image" class="fileinput">日記の登録
+                  </label>
+                  <span class="filename">選択されていません</span>
+              </div><br>
+              <div class='inframe'>
+                <div>タイトル</div><input class='inputs' type="text" name="title"><br>
+            </div>
+              <div class='inframe'>
+                <div>　　タグ</div><input class='inputs' type="text" name="tag"><br>
+            </div>
+              <div class='inframe'>
+                <div>テキスト</div><textarea class='txt' name="text" ></textarea><br>
+            </div>
+         
+            <button type="submit" class='sends'>送信</button>
+        </form>
+
+      </div>
+      <div class="line">
+
+      </div>
+    
+  <div class="main2">
+    <h2>日記一覧</h2>
+
+    <div class="diary-container">
+        <% items.forEach((item) => { %>
+          
+            <div class="dcard">
+            <div class='diary-card'>
+                <a href="/diary/<%=item.id%>">
+                    <img src="<%= item.image %>" alt="" >
+                    <h3><%= item.title%></h3>               
+                    <p class='dtext'><%= item.text%></p>
+                </a>
+                <div class="option">
+                    <div class="update"><a href="/diaryEdit/<%=item.id%>">編集</a></div>
+                    <div class="delete"><a href="/diaryDelete/<%=item.id%>">削除</a></div>
+                </div>
+                
+           </div>
+        </div>
+        <% }) %>
+    </div>
+  </div>
+
+
+<br>
+<div class="nav">
+    <p><a href="/myprofile">店舗情報</a></p>
+    <p><a href="/frege">花の登録</a></p>
+    <p><a href="/mapinfo">マップ情報</a></p>
+  </div>
+
+</div>
+
+<!-- フッター ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝-->
+<div class="footer-glid">
+    <footer>
+        <h3>Copyright  second-cube</h3>
+    </footer>
+  
+    <!-- フッターナビ -->
+    <div class='Fnav web ' >
+    <ul class='navs'>
+    <li ><a href="/map" ><img class='navimg' src="../images/map-24.png" alt=""></a><a href="/map" class='Fnav-link hlink'>Map</a></li>
+    <li ><a href="/shops" ><img class='navimg' src="../images/shop-24.png" alt=""></a><a href="/shops" class='Fnav-link hlink'>Shop</a></li>
+    <li ><a href="/diarys" ><img class='navimg' src="../images/script-24.png" alt=""></a><a href="/diarys" class='Fnav-link hlink'>Diary</a></li>
+    <li ><a href="/flowers" ><img class='navimg' src="../images/flower-24.png" alt=""></a><a href="/flowers" class='Fnav-link hlink'>Flower</a></li>
+    <!-- <li><div id='search'>検索</div></li> -->
+  
+    </ul>
+    </div>
+  </div>
+  <!-- フッターここまで ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝-->
+  
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script>
+     $('#attachment .fileinput').on('change', function () {
+ var file = $(this).prop('files')[0];
+ $(this).closest('#attachment').find('.filename').text(file.name);
+});
+ </script>
+</body>
+</html>

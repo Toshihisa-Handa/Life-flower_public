@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>店舗一覧</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/shops.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+
+
+<div class="shops-glid">
+    <header>
+        <ul>
+          
+          <div class='leftNav'>
+              <li><a href="/" ><img src="images/lf-logo-gray.png" alt="" class='logo' ></a></li>
+              <li class='searchImg'> <img src="images/search-24.png" id='search' alt=""></li>
+        </div>
+          <li class='hnav'><a href="/map" class='hlink'>Map</a></li>
+          <li class='hnav'><a href="/shops" class='hlink'>Shop</a></li>
+          <li class='hnav'><a href="/diarys" class='hlink'>Diary</a></li>
+          <li class='hnav'><a href="/flowers" class='hlink'>Flower</a></li>
+          <div class='nav-right'>
+            <li class='searchNav'>
+                <form action="/s_search" method='get'>
+                <span class='search-bar'>Search</span><input  class='search t-search' type="text" name='kensaku' placeholder="検索ワード入力" required>
+            </form>
+           </li>
+          <% if (typeof user == 'undefined') { %>
+          <li class='log'><a href="/login" class='hlink'>Login</a></li>
+          <% } else{%>
+          <li class='log'><a href="/logout" class='hlink'>Logout</a></li>
+          <% } %>
+          <li class='account_img' >
+             <a href="/mypage">
+                <% if (typeof user !== 'undefined' ) { %>
+                    <% if(sitems[0].account_img=== null){%>
+                        <img src="images/account3.png" class='aimg' alt="" >  
+                  <% }else{ %>
+                    <img src="<%=sitems[0].account_img %>" class='aimg' alt="" >  
+                  <% } %>
+                  <% } %>
+            </a>
+        </li>
+     </div>
+ 
+        </ul>
+     </header>
+     <div class="img1">
+        <img src="../images/shopsimg1.png" alt="">
+    </div>
+    
+     <div class="title1">
+       <div class='topTitle'>Shop List</div>
+     </div>
+     
+
+</div>
+
+ 
+
+ 
+
+
+<div class="shop-list">
+    <div class="shopList">
+        <div class="shop-container">
+        <% items.forEach((item) => { %>
+
+           <div class="shop-card">
+             <a href="/shop/<%=item.id%>">
+                <img src="<%= item.shop_img %>" alt="">  
+                <div class='shopTitle'><%= item.shopname%></div>
+                <div class='shopSub'>営業時間：<%= item.open%>~<%= item.close%></div>
+                <div class='shopSub'>休業日：<%= item.holiday%></div>
+                <div class='shopSub'>特徴：<%= item.feature%></div>
+            </a>
+           </div>
+
+        <% }) %>
+        </div>
+  </div>
+</div>
+
+<!-- フッター ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝-->
+<div class="footer-glid">
+    <footer>
+      <h3 class='topSubtitle'>Copyright  second-cube</h3>
+    </footer>
+
+    <!-- フッターナビ -->
+    <div class='Fnav web ' >
+    <ul class='navs'>
+    <li ><a href="/map" ><img class='navimg' src="../images/map-24.png" alt=""></a><a href="/map" class='Fnav-link hlink'>Map</a></li>
+    <li ><a href="/shops" ><img class='navimg' src="../images/shop-24.png" alt=""></a><a href="/shops" class='Fnav-link hlink'>Shop</a></li>
+    <li ><a href="/diarys" ><img class='navimg' src="../images/script-24.png" alt=""></a><a href="/diarys" class='Fnav-link hlink'>Diary</a></li>
+    <li ><a href="/flowers" ><img class='navimg' src="../images/flower-24.png" alt=""></a><a href="/flowers" class='Fnav-link hlink'>Flower</a></li>
+    <!-- <li><div id='search'>検索</div></li> -->
+
+    </ul>
+    </div>
+</div>
+<!-- フッターここまで ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝-->
+
+
+
+<script>
+ const search = document.querySelector('#search')
+ const hideSearch = document.querySelector('.t-search')
+   search.onclick = function(){
+     hideSearch.classList.toggle('t-search')
+    // alert('hit')
+ }
+
+</script> 
+</body>
+</html>

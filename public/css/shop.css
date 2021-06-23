@@ -1,0 +1,355 @@
+
+/* メインここから */
+.main-glid{
+    display:grid;
+    grid-template-rows: 0 100vh 50px auto ;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header  header"
+        "main    main"
+        "...     ..."
+        "title1  title1"
+      }
+/* ヘッダー */
+header{
+    grid-area:header;
+    /* background: rgba(177, 212, 238,0.3); */
+    position: fixed;
+    width: 100%;
+    
+}
+/* メイン画像 */
+.main{
+    grid-area:main;
+    /* background: rgb(155, 153, 153); */
+    /* background-image: url(/images/top0.jpg); */
+    /* max-height: 900px; */
+    background-size: contain;
+    background-size: cover;
+    background-position:center; 
+
+}
+.mainTitle{
+    margin-top:20%;
+    margin-bottom: 0;
+    font-size: 6rem;
+    text-align: center;
+    /* color:wheat; */
+    color:rgb(241, 242, 232);
+}
+.mainspan1, .mainspan2{
+  background-color: rgba(37, 39, 43, 0.2);
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding:0.3%;
+  border-radius: 11%;
+}
+.mainspan1:before, .mainspan2:before{
+  content: '';
+  background: inherit;/*.bgImageで設定した背景画像を継承する*/
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: absolute;
+  /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+}
+
+.mainSubtitle{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 4.8rem;
+    /* color:wheat; */
+    color:rgb(241, 242, 232);
+}
+/* タイトル１ */
+.title1{
+    grid-area:title1;
+    /* background: #f88; */
+    max-height: 300px;
+
+}
+.StopTitle{
+    text-align: center;
+    font-size: 3.2rem ;
+ }
+ 
+ .StopsubTitle{
+     font-size: 2.8rem ;
+ }
+
+
+
+/* メインここまで＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+.tips-glid{
+  display:grid;
+  
+    grid-template-columns: 1.5fr 7fr 1.5fr;
+    grid-template-areas: 
+        "... tips1 ...";
+}
+.tips1{
+  margin-top:0;
+    grid-area:tips1;
+    white-space: pre-wrap;
+
+    /* background: rgb(155, 153, 153); */
+}
+.tips1 h3{
+    word-break: break-all;
+    /* line-height: 6rem;; */
+    white-space: pre-wrap;
+
+}
+
+
+/* 画像１ */
+.img-glid{
+  display:grid;
+    grid-template-rows:100px auto;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas: 
+        "...  ... ..."
+        "... img1 ...";
+}
+.img1{
+    grid-area:img1;
+    /* background: #f88; */
+}
+.img1 img{
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+
+
+}
+
+
+
+/* お花一覧の設定 */
+
+.flower-glid{
+  display:grid;
+    grid-template-rows:50px auto 50px auto 50px auto 50px auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "...  ..."
+        "title2  title2"
+        "...  ..."
+        "flist  flist"
+        "...     ..."
+        "title3  title3"
+        "...     ..."
+        "dlist   dlist";
+}
+       
+.title2{
+    grid-area:title2;
+    /* background: rgb(155, 153, 153); */
+}
+.title2 h1{
+    text-align: center;
+}
+
+/* 花一覧表示 */
+
+
+  .flist{
+  grid-area: flist;
+  padding-top:2%;
+  /* background: rgb(243, 245, 248); */
+  margin-left: 2%;
+  margin-right:2%;
+  }
+  
+
+  .flower-box{
+  /* background: rgb(179, 202, 236); */
+  width: 300px;
+  height: 450px;
+  border: 2px solid rgb(197, 213, 247);
+  box-shadow: 5px 5px 5px 1px rgb(163, 189, 197);
+  margin-right: 30px;
+  }
+  .flower {
+    width: 100%;
+  }
+  .flower img{
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+
+  }
+
+  .fname{
+  text-overflow: ellipsis;
+  margin-top:0;
+  margin-bottom:0;
+  margin-left:5%;
+  font-size: 2rem;
+  }
+  .fprice, .ffeature{
+    margin-top: 0px;
+
+  margin-left:5%;
+  font-size: 1.4rem;
+
+  }
+
+  
+  .fbl, .fbr{
+    background-color: rgb(139, 173, 235);
+  }
+
+/* 花一覧ここまで＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+      
+/* 日記一覧ここから */
+.title3{
+    grid-area:title3;
+    /* background: rgb(155, 153, 153); */
+}
+.title3 h1{
+    text-align: center;
+}
+
+
+
+.dlist{
+padding-top:2%;
+grid-area: dlist;
+margin-left: 2%;
+margin-right:2%;
+/* background: rgb(243, 245, 248); */
+
+}
+
+.diary-box{
+/* background: rgba(243, 242, 234, 0.3); */
+width: 300px;
+height: 443px;
+border: 2px solid rgb(197, 213, 247);
+box-shadow: 5px 5px 5px 1px rgb(163, 189, 197);
+}
+.diary {
+  width: 100%;
+  margin-top: 0;
+}
+.diary img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+
+
+
+}
+
+.dtitle{
+text-overflow: ellipsis;
+margin-top:0;
+margin-bottom:0;
+margin-left:5%;
+font-size: 2rem;
+}
+.dtext{
+font-size: 1.4rem;
+margin-top:5px;
+margin-left:7%;
+margin-right: 3%;
+word-break: keep-all;
+overflow: hidden;
+text-overflow: ellipsis;/*...を末尾にいれる(overflow:hiddenとセット)*/
+}
+  
+
+
+/* 日記一覧ここまで */
+
+
+.access-glid{
+   display:grid;
+    grid-template-rows:100px auto 50px auto 50px;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas: 
+    "...  ... ..."
+    "...  title4 ..."
+    "...  ...    ..."
+    "...  shopName  ..."
+    "...  ...    ...";
+
+}
+
+
+.title4{
+    grid-area:title4;
+    /* background: rgb(155, 153, 153); */
+}
+.title4 h1{
+  text-align: center;
+}
+.accessTitle{
+  padding-bottom:10px;
+  border-bottom: 1px inset rgba(48, 50, 53, 0.4);;
+
+}
+
+.shopName{
+    grid-area:shopName;
+    /* background: rgb(155, 153, 153); */
+}
+.shopName h2{
+  text-align: center;
+}
+
+.map-glid{
+  display:grid;
+    grid-template-rows: auto 100px 300px ;
+    grid-template-columns: 1fr 4.5fr 1fr 4.5fr 1fr;
+    grid-template-areas: 
+    "... img3  ... access ..."
+    '...   ...   ... ... ...'
+    "... map  map  map ..."
+}
+
+.img3{
+  grid-area:img3;
+}
+.imgBox{
+  width: 100%;
+  height: 100%;
+  margin:0 auto;
+}
+.imgBox img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+
+}
+
+.access{
+  grid-area:access;
+}
+.afont{
+    font-size: 2.4rem;
+   }
+
+
+.map{
+  grid-area:map;
+}
+.shopmap{
+  width: 100%;
+  height: 100%;
+}
+
+.link{
+  color:rgb(111, 168, 243)
+}

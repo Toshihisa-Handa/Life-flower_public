@@ -1,0 +1,160 @@
+
+/* login.ejs */
+
+.flowers-glid{
+    display:grid;
+    grid-template-rows: 0 65px 150px  ;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header  header"
+        ".....   ....."
+        "title1  title1"
+      }
+
+header{
+    grid-area:header;
+    /* background: rgba(177, 212, 238,0.3); */
+}
+
+.title1{
+    grid-area:title1;
+    /* background: rgba(63, 98, 122, 0.3); */
+    margin-left: 10%;
+    line-height: 110px;
+}
+
+
+.login-list{
+    display:grid;
+    grid-template-rows: 200px 300px 150px  ;
+    grid-template-columns: 2fr 2.5fr 1fr 2.5fr 2fr;
+    grid-template-areas: 
+        ".....loginimg ... loginList ....."
+        ".....loginimg ... loginList ....."
+        ".....loginimg ... loginList .....";
+}
+
+.loginimg{
+  grid-area:loginimg;
+  background: rgba(18, 100, 163, 0.3);
+
+  background-image: url(/images/loginimg1.jpg);
+  background-size: cover;
+
+}
+
+
+.loginList{
+    grid-area:loginList;
+    padding:5%;
+    padding-top:20%;
+    /* background: rgba(63, 98, 122, 0.3); */
+    background: rgba(219, 244, 255, 0.3);
+    border: 2px solid rgba(223, 218, 179, 0.8);
+        /* box-shadow: 5px 5px 5px 1px rgb(163, 189, 197); */
+       
+}
+
+.linput{
+  width: 100%;
+    padding: 7px;
+    border: 2px solid #d7dee2;
+    font-size: 13px;
+    margin-top: 0;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+    
+.lbutton{
+  width: 60%;
+    padding: 7px;
+    border: 2px solid #d7dee2;
+    font-size: 13px;
+    margin-top:20%;
+    margin-left:20%;
+    
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+.rlink{
+  margin-top:15%;
+  text-align: center;
+}
+.underbar{
+  padding-bottom:10px;
+  border-bottom: 1px inset rgba(48, 50, 53, 0.4);
+}
+.rlink:hover{
+  opacity: 0.7;
+}
+     
+
+/* register.ejs */
+
+.loginimg2{
+    grid-area:loginimg;
+    background: rgba(18, 100, 163, 0.3);
+  
+    background-image: url(/images/registerimg2.png);
+    background-size: cover;
+  
+  }
+  
+  
+  .loginList2{
+      grid-area:loginList;
+      padding:5%;
+      padding-top:20%;
+      /* background: rgba(63, 98, 122, 0.3); */
+      background: rgba(219, 244, 255, 0.3);
+      border: 2px solid rgba(179, 203, 223, 0.8);
+          /* box-shadow: 5px 5px 5px 1px rgb(163, 189, 197); */
+         
+  }
+  
+  .linput2{
+    width: 100%;
+      padding: 7px;
+      border: 2px solid #bcdef1;
+      font-size: 13px;
+      margin-top: 0;
+      vertical-align: middle;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+      
+  .lbutton2{
+    width: 60%;
+      padding: 7px;
+      border: 2px solid #a9defd;
+      font-size: 13px;
+      margin-top:20%;
+      margin-left:20%;
+      background: rgba(165, 215, 238, 0.3);
+  
+      
+      vertical-align: middle;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  
+  }
